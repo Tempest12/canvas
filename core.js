@@ -1,5 +1,5 @@
 var canvas;
-var twoDContext;
+var glContext;
 
 function core_init()
 {
@@ -7,23 +7,15 @@ function core_init()
 
     if(canvas.getContext)
     {
-        twoDContext = canvas.getContext("2d");
+        glContext = canvas.getContext("webgl");
 
-        let array = new Uint8ClampedArray(4);
-
-        array[0] = 0;
-        array[1] = 255;
-        array[2] = 255;
-        array[3] = 255;
-
-        let cyan = new ImageData(array, 1, 1);
-
-        for(var width = 0; width < canvas.width; width++)
+        if(glContext === null)
         {
-            for(var height = 0; height < canvas.height; height++)
-            {
-                twoDContext.putImageData(cyan, width, height);
-            }
+            alert("Houston we have a problem.  No webGL. MonkaS");
+            return;
         }
+
+        glContext.clearColor(0.0, 1.0, 1.0, 1.0);
+        glContext.clear(glContext.COLOR_BUFFER_BIT);
     }
 }

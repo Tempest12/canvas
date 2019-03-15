@@ -18,4 +18,6 @@ function core_init()
         glContext.clearColor(0.0, 1.0, 1.0, 1.0);
         glContext.clear(glContext.COLOR_BUFFER_BIT);
     }
+
+    stars_init()
 }

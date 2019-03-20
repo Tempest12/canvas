@@ -20,4 +20,13 @@ function core_init()
     }
 
     stars_init()
+
+    requestAnimationFrame(core_run_loop);
+}
+
+function core_run_loop(currentTime)
+{
+    
+    
+    requestAnimationFrame(core_run_loop);
 }

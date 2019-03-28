@@ -1,6 +1,8 @@
 var canvas;
 var glContext;
 
+var lastTime;
+
 function core_init()
 {
     canvas = document.getElementById("iCan");
@@ -26,7 +28,11 @@ function core_init()
 
 function core_run_loop(currentTime)
 {
-    
-    
+    currentTime *= 0.001; //Convert to seconds I guess?
+    let deltaTime = currentTime - lastTime;
+    lastTime = currentTime;
+
+    stars_draw(deltaTime);
+
     requestAnimationFrame(core_run_loop);
 }

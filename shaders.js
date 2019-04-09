@@ -47,3 +47,25 @@ void main()\
 {\
     gl_FragColor = color;\
 }";
+
+var stars_color_vertex = "\
+\
+attribute vec4 inPosition;\
+attribute vec4 inColor;\
+\
+varying highp vec4 fragColor;\
+\
+void main()\
+{\
+    gl_Position = inPosition;\
+    fragColor = inColor;\
+}";
+
+var stars_color_fragment = "\
+\
+varying highp vec4 fragColor;\
+\
+void main()\
+{\
+    gl_FragColor = fragColor;\
+}";
